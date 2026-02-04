@@ -159,6 +159,8 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-medium), visibility var(--transition-medium);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .screen.active {
@@ -171,6 +173,7 @@ body {
   padding: var(--spacing-lg);
   max-width: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* ========================================
@@ -359,18 +362,21 @@ body {
   font-weight: 400;
 }
 
-/* Restart Button */
 .btn-restart {
   background: transparent;
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
   margin-top: var(--spacing-xl);
   transition: all var(--transition-medium);
+  max-width: 90%;
+  word-wrap: break-word;
+  white-space: normal;
+  display: inline-block;
 }
 
 .btn-restart:hover {
