@@ -48,24 +48,33 @@ const App = {
      * Set up all event listeners
      */
     setupEventListeners() {
-        // Continue button click (start screen)
+        // Continue button (start screen)
         this.elements.continueBtn.addEventListener('click', () => this.transitionToScreen(1));
+        this.elements.continueBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.transitionToScreen(1);
+        });
 
-        // Yes button click
+        // Yes button
         this.elements.yesBtn.addEventListener('click', () => this.handleYesClick());
+        this.elements.yesBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.handleYesClick();
+        });
 
-        // No button click
+        // No button
         this.elements.noBtn.addEventListener('click', (e) => this.handleNoClick(e));
+        this.elements.noBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.handleNoClick(e);
+        });
 
-        // Restart button click
+        // Restart button
         this.elements.restartBtn.addEventListener('click', () => this.restartApp());
-
-        // Prevent double-tap zoom on mobile
-        document.addEventListener('touchend', (e) => {
-            if (e.target.classList.contains('btn')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
+        this.elements.restartBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.restartApp();
+        });
     },
 
     /**
